@@ -1,0 +1,154 @@
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body class="">
+  <div id="page">
+   <div id="content" class="widecolumn">
+      <div class="post">
+  
+  <div class="entry">
+    
+
+<div   id="picker""> <input id="output" value=" "> <input id="output1" value=" "> <input id="output2" value=" "> </div> <br>
+<div id="full" </div>
+
+<link rel="stylesheet" type="text/css" href="./!!picker_files/spectrum.css">
+<script src="./!!picker_files/jquery-1.8.1.min.js"></script>
+<script type="text/javascript" src="./!!picker_files/spectrum.js"></script>
+
+<style type="text/css">
+#output-ratio, #output {
+font-size: 25px;
+width: 60px;
+text-align:center;
+background-color: #ffaaaa;
+border-style: none;
+position: center;
+}
+#output-ratio1, #output1 {
+font-size: 25px;
+width: 60px;
+text-align:center;
+background-color: #aaffaa;
+border-style: none;
+}
+#output-ratio2, #output2 {
+font-size: 25px;
+width: 60px;
+text-align:center;
+background-color: #aaaaff;
+border-style: none;
+}
+.full-spectrum .sp-palette {
+max-width: 200px;
+background-color: white;
+border-style: none;
+}
+.sp-container {
+background-color: white;
+border-style: none;
+margin-top: 0px;
+}
+.sp-picker-container {
+width: 300px;
+background-color: white;
+border-style: none;
+}
+
+</style>
+
+<script type="text/javascript">
+
+function tinycolorToUIKit(color, useRatio) {
+   var rgb = color.toRgb();
+   var strColors = [];
+   if (useRatio) {
+      strColors = [rgb.r + ".0f/255.0f", rgb.g + ".0f/255.0f", rgb.b + ".0f/255.0f"];
+   }
+   else {
+      strColors = [(rgb.r / 255).toFixed(2), (rgb.g / 255).toFixed(2), (rgb.b / 255).toFixed(2)];
+   }
+   return strColors[0];
+}
+
+function tinycolorToUIKit1(color, useRatio) {
+   var rgb = color.toRgb();
+   var strColors = [];
+   if (useRatio) {
+      strColors = [rgb.r + ".0f/255.0f", rgb.g + ".0f/255.0f", rgb.b + ".0f/255.0f"];
+   }
+   else {
+      strColors = [(rgb.r / 255).toFixed(2), (rgb.g / 255).toFixed(2), (rgb.b / 255).toFixed(2)];
+   }
+   return strColors[1];
+}
+
+function tinycolorToUIKit2(color, useRatio) {
+   var rgb = color.toRgb();
+   var strColors = [];
+   if (useRatio) {
+      strColors = [rgb.r + ".0f/255.0f", rgb.g + ".0f/255.0f", rgb.b + ".0f/255.0f"];
+   }
+   else {
+      strColors = [(rgb.r / 255).toFixed(2), (rgb.g / 255).toFixed(2), (rgb.b / 255).toFixed(2)];
+   }
+   return strColors[2]
+}
+function setColor(color) {
+        $("#output").val(tinycolorToUIKit(color));
+        $("#output-ratio").val(tinycolorToUIKit(color, true));  
+        $("#output1").val(tinycolorToUIKit1(color));
+        $("#output-ratio1").val(tinycolorToUIKit1(color, true)); 
+        $("#output2").val(tinycolorToUIKit2(color));
+        $("#output-ratio2").val(tinycolorToUIKit2(color, true)); 		
+        $("#picker").css("border-color", color.toHexString());
+}
+
+var defaultColor = "#ffffff";
+setColor(tinycolor(defaultColor));
+$("#full").spectrum({
+    color: defaultColor,
+    showInput: true,
+    className: "full-spectrum",
+    showInitial: true,
+    showPalette: true,
+    showSelectionPalette: false,
+    preferredFormat: "hex",
+    flat: true,
+    move: setColor,
+    show: function () {
+
+    },
+    beforeShow: function () {
+
+    },
+    hide: function () {
+
+    },
+    change: function() {
+
+    },
+    palette: [
+        ["rgb(0, 0, 0)", "rgb(67, 67, 67)", "rgb(102, 102, 102)",
+        "rgb(204, 204, 204)", "rgb(217, 217, 217)","rgb(255, 255, 255)"],
+        ["rgb(152, 0, 0)", "rgb(255, 0, 0)", "rgb(255, 153, 0)", "rgb(255, 255, 0)", "rgb(0, 255, 0)",
+        "rgb(0, 255, 255)", "rgb(74, 134, 232)", "rgb(0, 0, 255)", "rgb(153, 0, 255)", "rgb(255, 0, 255)"],
+        ["rgb(230, 184, 175)", "rgb(244, 204, 204)", "rgb(252, 229, 205)", "rgb(255, 242, 204)", "rgb(217, 234, 211)",
+        "rgb(208, 224, 227)", "rgb(201, 218, 248)", "rgb(207, 226, 243)", "rgb(217, 210, 233)", "rgb(234, 209, 220)",
+        "rgb(221, 126, 107)", "rgb(234, 153, 153)", "rgb(249, 203, 156)", "rgb(255, 229, 153)", "rgb(182, 215, 168)",
+        "rgb(162, 196, 201)", "rgb(164, 194, 244)", "rgb(159, 197, 232)", "rgb(180, 167, 214)", "rgb(213, 166, 189)",
+        "rgb(204, 65, 37)", "rgb(224, 102, 102)", "rgb(246, 178, 107)", "rgb(255, 217, 102)", "rgb(147, 196, 125)",
+        "rgb(118, 165, 175)", "rgb(109, 158, 235)", "rgb(111, 168, 220)", "rgb(142, 124, 195)", "rgb(194, 123, 160)",
+        "rgb(166, 28, 0)", "rgb(204, 0, 0)", "rgb(230, 145, 56)", "rgb(241, 194, 50)", "rgb(106, 168, 79)",
+        "rgb(69, 129, 142)", "rgb(60, 120, 216)", "rgb(61, 133, 198)", "rgb(103, 78, 167)", "rgb(166, 77, 121)",
+        "rgb(91, 15, 0)", "rgb(102, 0, 0)", "rgb(120, 63, 4)", "rgb(127, 96, 0)", "rgb(39, 78, 19)",
+        "rgb(12, 52, 61)", "rgb(28, 69, 135)", "rgb(7, 55, 99)", "rgb(32, 18, 77)", "rgb(76, 17, 48)"]
+    ]
+});
+</script>
+
+
+  </div>
+</div>
+   </div>
+   </div>
+ 
+
+</body></html>
